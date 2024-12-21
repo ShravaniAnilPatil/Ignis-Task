@@ -1,18 +1,35 @@
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from .models import Job
-from .serializers import JobSerializer
+import json
 
-@api_view(['GET'])
 def get_jobs(request):
-    jobs = Job.objects.all()
-    serializer = JobSerializer(jobs, many=True)
-    return Response(serializer.data)
+    jobs = list(Job.objects.values())
+    return JsonResponse(jobs, safe=False) 
 
-@api_view(['POST'])
+@csrf_exempt
 def add_job(request):
-    serializer = JobSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
-    return Response(serializer.errors, status=400)
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            
+            job = Job.objects.create(
+                title=data.get('title'),
+                company_name=data.get('company_name'),
+                location=data.get('location'),
+                employment_type=data.get('employment_type'),
+                salary=data.get('salary'),
+                details_url=data.get('details_url'),
+                posted_date=data.get('posted_date'),
+                modified_date=data.get('modified_date'),
+                skills=data.get('skills'),
+                location_type=data.get('location_type'),
+                job_description=data.get('job_description')
+            )
+            
+            return JsonResponse({'message': 'Job added successfully', 'job_id': job.id})
+        
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=400)
+    
+    return JsonResponse({'error': 'Invalid request method'}, status=405)

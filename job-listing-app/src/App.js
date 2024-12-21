@@ -43,7 +43,7 @@ const App = () => {
             {/* Content */}
             <div className="relative z-10 text-center max-w-4xl px-4">
               <h1 className="text-5xl font-extrabold mb-6">
-                Welcome to <span className="text-yellow-400">JobPortal</span>
+                Welcome to <span className="text-yellow-400">QuickHire</span>
               </h1>
               <p className="text-lg leading-relaxed mb-8">
                 Discover thousands of opportunities to find the career of your dreams. 

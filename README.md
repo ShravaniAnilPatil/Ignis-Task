@@ -37,7 +37,7 @@ Quick Hire is a full-stack web application designed to simplify job listing mana
 
 ### UI Screenshots
 1. **Home Page**:
-   ![Home Page](./screenshots/home.png)
+   ![Home Page](./screenshots/Home.png)
 2. **Job Listings**:
    ![Job Listings](./screenshots/img2.png)
 3. **View Job details**:

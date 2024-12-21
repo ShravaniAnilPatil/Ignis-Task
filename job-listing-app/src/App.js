@@ -4,16 +4,17 @@ import JobSearchBar from "./components/JobSearchBar";
 import JobFilters from "./components/JobFilters";
 import JobList from "./components/JobList";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import bg from './assets/images/bg.jpg';
 
 const App = () => {
   const [view, setView] = useState("home");
-  const [searchTerm, setSearchTerm] = useState(""); 
+  const [searchTerm, setSearchTerm] = useState("");
   const [filters, setFilters] = useState({
     jobType: "Job type",
     workplace: "Workplace",
     country: "Country or timezone",
     seniority: "Seniority",
-  }); 
+  });
 
   const handleSearch = (term) => {
     setSearchTerm(term);
@@ -28,8 +29,19 @@ const App = () => {
       case "home":
         return (
           <div className="relative bg-gradient-to-r from-blue-800 via-blue-600 to-blue-400 min-h-screen flex items-center justify-center text-white">
-            <div className="absolute inset-0 bg-opacity-50 bg-cover bg-center" style={{ backgroundImage: "url('https://source.unsplash.com/1920x1080/?career,technology')" }}></div>
-            <div className="relative z-10 text-center max-w-4xl">
+            {/* Background Image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${bg})`, // Correct usage
+              }}
+            ></div>
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+            {/* Content */}
+            <div className="relative z-10 text-center max-w-4xl px-4">
               <h1 className="text-5xl font-extrabold mb-6">
                 Welcome to <span className="text-yellow-400">JobPortal</span>
               </h1>

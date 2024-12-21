@@ -49,11 +49,15 @@ const JobList = ({ searchTerm, filters }) => {
 
   const getModifiedDate = (postedDate, modifiedDate) => {
     if (modifiedDate) return modifiedDate;
+  
     const posted = new Date(postedDate);
-    const modified = new Date(posted.getTime() + 24 * 60 * 60 * 1000); 
-    return modified.toISOString().split("T")[0];
+    const now = new Date();
+    const fallbackModified = new Date(posted.getTime() + 24 * 60 * 60 * 1000);
+    const finalModified = fallbackModified > now ? now : fallbackModified;
+  
+    return finalModified.toISOString().split("T")[0];
   };
-
+  
   return (
     <div className="job-list container mx-auto p-6">
       {filteredJobs.length > 0 ? (

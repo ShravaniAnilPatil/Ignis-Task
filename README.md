@@ -15,7 +15,7 @@ Quick Hire is a full-stack web application designed to simplify job listing mana
 - **POST API**: Inserts new job data into the database via a POST request.
 
 ### Scraper
-- **Selenium Framework**: Scrapes job data from external APIs or web pages.
+- **Scrapy and Selenium Framework**: Scrapes job data from external APIs or web pages.
 - **Pagination Handling**: Effectively handles pagination to collect comprehensive job listings.
 - **POST Request**: Automatically sends scraped data to the backend API for storage.
 

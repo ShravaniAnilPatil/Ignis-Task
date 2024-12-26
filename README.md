@@ -3,7 +3,7 @@
 Quick Hire is a full-stack web application designed to simplify job listing management and display. The project integrates a robust backend, efficient scraping capabilities, and a sleek frontend to deliver an intuitive user experience.
 
 - **Backend**: Powered by Django REST Framework for API development.
-- **Scraper**: Developed using Selenium to collect job data from external sources.
+- **Scraper**: Developed using Scrapy, Selenium to collect job data from external sources.
 - **Frontend**: Built with ReactJS and styled using Tailwind CSS for a modern and responsive user interface.
 
 ---
@@ -28,7 +28,7 @@ Quick Hire is a full-stack web application designed to simplify job listing mana
 ## Technologies Used
 
 - **Backend**: Django REST Framework, MySQL
-- **Scraper**: Selenium (Python)
+- **Scraper**:Scrapy, Selenium (Python)
 - **Frontend**: ReactJS, Tailwind CSS
 
 ---
